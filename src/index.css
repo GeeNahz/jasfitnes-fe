@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("./fonts/Poppins/Poppins-Regular.ttf");
+  /* font-weight: lighter; */
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.active {
+  color: orange;
+}
+
+/* img {
+  width: 100%;
+} */
+
+.text-vxs {
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+}
+.h-hero-img {
+  height: 50rem;
+}
+
+.w-90p {
+  width: 90%;
+}
+
+.w-95p {
+  width: 95%;
+}
