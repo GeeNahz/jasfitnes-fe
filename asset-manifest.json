@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/jasfitnes-fe/static/css/main.ba963b29.css",
+    "main.js": "/jasfitnes-fe/static/js/main.e05efc7f.js",
+    "static/media/pose3.png": "/jasfitnes-fe/static/media/pose3.2d3d8f4e3ac3a6fe546e.png",
+    "static/media/Poppins-Regular.ttf": "/jasfitnes-fe/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
+    "static/media/card-top.jpg": "/jasfitnes-fe/static/media/card-top.c2120497f3f5e1e94528.jpg",
+    "static/media/workout4.jpg": "/jasfitnes-fe/static/media/workout4.9b2f656811a6a6a48d82.jpg",
+    "index.html": "/jasfitnes-fe/index.html",
+    "main.ba963b29.css.map": "/jasfitnes-fe/static/css/main.ba963b29.css.map",
+    "main.e05efc7f.js.map": "/jasfitnes-fe/static/js/main.e05efc7f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba963b29.css",
+    "static/js/main.e05efc7f.js"
+  ]
+}
