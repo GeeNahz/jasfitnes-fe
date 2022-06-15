@@ -10,11 +10,7 @@ function App() {
   return (
     <div className="default-font">
       <Navbar />
-      <Routes >
-        <Route path='/' element={<Home />}>
-
-        </Route>
-      </Routes>
+      <Home />
       <Footer />
     </div>
   );
