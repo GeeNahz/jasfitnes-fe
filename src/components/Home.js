@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-import pose from '../img/pose3.png'
-import pose2 from '../img/pose2.jpg'
-import logo2 from '../img/logo2.jpg'
-import logo3 from '../img/logo3.png'
+import pose from '../images/pose3.png'
+import pose2 from '../images/pose2.jpg'
+import logo2 from '../images/logo2.jpg'
+import logo3 from '../images/logo3.png'
 
 import Header from './Header';
 // import SubscribeForm from './SubscribeForm';

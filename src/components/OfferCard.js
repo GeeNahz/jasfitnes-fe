@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import sunset from "../img/card-top.jpg"
+import sunset from "../images/card-top.jpg"
 
 
 const OfferCard = () => {
