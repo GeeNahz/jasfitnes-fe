@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+// import FramerAdvanced from './FramerAdvanced';
+
 // font
 import './fonts/Poppins/Poppins-Regular.ttf'
 
@@ -12,6 +14,7 @@ root.render(
   <React.StrictMode>
     <Router>
       <App />
+      {/* <FramerAdvanced /> */}
     </Router>
   </React.StrictMode>
 );
