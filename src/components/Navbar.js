@@ -39,12 +39,12 @@ const Navbar = () => {
                 </div>
                 <div className='flex flex-row-reverse'>
                     {/* on md screen */}
-                    <div className='flex flex-row space-x-5'>
+                    <div className='flex flex-row space-x-2 items-center'>
                         <ul className="hidden md:flex flex-row space-x-5 uppercase">
-                            <li className='active'>Home</li>                
-                            <li>Services</li>                
-                            <li>About</li>                
-                            <li>Contact</li>                
+                            <motion.li whileHover={{ scale: 1.05 }} className='active hover:bg-yellow-500 hover:text-white w-full px-4 py-2 rounded-sm'>Home</motion.li>                
+                            <motion.li whileHover={{ scale: 1.05 }} className='hover:bg-yellow-500 hover:text-white rounded-sm w-full px-4 py-2'>Services</motion.li>                
+                            <motion.li whileHover={{ scale: 1.05 }} className='hover:bg-yellow-500 hover:text-white rounded-sm w-full px-4 py-2'>About</motion.li>                
+                            <motion.li whileHover={{ scale: 1.05 }} className='hover:bg-yellow-500 hover:text-white rounded-sm w-full px-4 py-2'>Contact</motion.li>                
                         </ul>
                         <form className=''>
                             <input className='hidden bg-gray-200 rounded-full py-1 pl-5 lg:inline' type="search" name="search" value={ searchText } onChange={e => setSearchText(e.target.value)} placeholder="Search"/>
@@ -70,10 +70,10 @@ const Navbar = () => {
                             y: -200
                         }}
                     >
-                        <li className='active hover:bg-slate-100 w-full py-2'>Home</li>
-                        <li className='hover:bg-slate-100 w-full py-2'>Services</li>
-                        <li className='hover:bg-slate-100 w-full py-2'>About</li>
-                        <li className='hover:bg-slate-100 w-full py-2'>Contact</li>
+                        <li className='active hover:bg-yellow-500 hover:text-white w-full py-2'>Home</li>
+                        <li className='hover:bg-yellow-500 hover:text-white w-full py-2'>Services</li>
+                        <li className='hover:bg-yellow-500 hover:text-white w-full py-2'>About</li>
+                        <li className='hover:bg-yellow-500 hover:text-white w-full py-2'>Contact</li>
                     </motion.ul>
                 )}
             </AnimatePresence>

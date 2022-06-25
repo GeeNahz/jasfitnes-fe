@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useAnimation } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 import {
@@ -13,7 +13,7 @@ import {
     whoWeAreItemsText,
     whoWeAreItemsImg,
     whatWeOfferVariants,
-    whatWeOfferLineVariants,
+    // whatWeOfferLineVariants,
     whatWeOfferItemsVariants,
     whatWeOfferCardBoxVariants,
     whatWeOfferCardVariants
@@ -25,7 +25,6 @@ import logo2 from '../images/logo2.jpg'
 import logo3 from '../images/logo3.png'
 
 import Header from './Header';
-// import SubscribeForm from './SubscribeForm';
 import OfferCard from './OfferCard';
 
 
@@ -40,7 +39,57 @@ const Home = () => {
     const [ref, inView] = useInView({ threshold: 0.2 });
     const [ref2, inView2] = useInView({ threshold: 0.2  });
     const [ref3, inView3] = useInView({ threshold: 0.2  });
+
+    const reviews = [
+        {
+            name: "Mary King",
+            title: "nutritionist",
+            review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste nesciunt voluptate eum temporibus deserunt voluptates corporis cum quo impedit?",
+            stars: 3 
+        },
+        {
+            name: "Sarah Sam",
+            title: "Programmer",
+            review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste nesciunt voluptate eum temporibus deserunt voluptates corporis cum quo impedit?",
+            stars: 5 
+        },
+        {
+            name: "Bill Dane",
+            title: "Archaeologist",
+            review: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod iste nesciunt voluptate eum temporibus",
+            stars: 3
+        },
+        {
+            name: "Francisca George",
+            title: "Business woman",
+            review: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            stars: 4
+        },
+        {
+            name: "chikaima obidiugwu",
+            title: "nutritionist",
+            review: "Lorem ipsum dolor sit amet consectetur adipisicing elit.Quod iste nesciunt",
+            stars: 5
+        },
+    ]
     
+    const [reviewCard, setReviewCard] = useState(reviews[0]);
+    const index = useRef(1);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (index.current === reviews.length){
+                index.current = 0;
+            } else {
+                setReviewCard(false);
+                setTimeout(() => {
+                    setReviewCard(reviews[index.current++]);
+                }, 1500)
+            }
+        }, 7000);
+        return () => clearInterval(interval);
+    });
+
     useEffect(() => {
         if (inView){
             titleHereAnimation.start("visible");
@@ -140,6 +189,18 @@ const Home = () => {
                     <motion.hr className='border-2 border-yellow-500 w-32 mb-3'
                         variants={whatWeOfferItemsVariants}
                     />
+                    {/* <svg xmlns='http://www.w3.org/2000/svg' width='451' height='437'>
+                        <motion.path
+                            d="M 239 17 C 142 17 48.5 103 48.5 213.5 C 48.5 324 126 408 244 408 412 319 412 213.5 C 412 108 334 68.5 C 154 68.5 102.68 135.079 99 213.5 C 95.32 219.921 157 350 231 345.5 C 305 341 357.5 290 357.5 219.5 C 357.5 149 314 121 244 121 C 174 121 151.5 167 151.5 213.5 C 152.5 260 176 286.5 224.5 286.5 C 273 286.5 296.5 253 296.5 218.5 C 296.5 184 270 177 244 177 C 218 177 197 198 218.5 C 197 239 206 250.5 225.5 250.5 C 250.5 253 242 253 218.5"
+                            fill="transparent"
+                            strokeWidth="12"
+                            stroke="rgba(255, 255, 255, 0.69)"
+                            strokeLinecap="round"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 4, yoyo: Infinity, ease: "easeInOut" }}
+                        />
+                    </svg> */}
                     <motion.p className='text-white font-light text-sm max-w-xl mb-5'
                         variants={whatWeOfferItemsVariants}
                     >Lorem ipsum dolor sit amet consectetur adipisicing elit.Quod iste nesciunt voluptate eum temporibus deserunt voluptates corporis</motion.p>
@@ -161,21 +222,17 @@ const Home = () => {
                     </motion.div>
                     <div className='flex w-44 h-10 items-center justify-center space-x-3 mb-16'>
                         <motion.span className='w-7 bg-yellow-500 h-1'
-                            // animate={{x: 40}}
                         ></motion.span>
                         <motion.span className='w-7 bg-gray-500 h-1'
-                            // animate={{ x: 0 }}
                         ></motion.span>
                         <motion.span className='w-7 
                         bg-gray-500 h-1'
-                            // animate={{ x: -40 }}
                         ></motion.span>
                     </div>
                 </motion.section>
                 <motion.section className='flex flex-col relative w-full'
                     ref={ref}
                 >
-                    {/* place the ref on the control for better experience */}
                     <motion.div className='py-5 flex bg-yellow-500 w-95p items-center absolute -top-24 right-0 overflow-hidden md:py-0 shadow-2xl rounded-l-lg'
                         variants={titleHereVariants}
                         initial="hidden"
@@ -198,20 +255,29 @@ const Home = () => {
                         <p className='capitalize font-bold text-5xl'>Reviews from you</p>
                         <hr className='border-2 border-yellow-500 w-32 mb-5' />
                         {/* reviews */}
-                        <motion.div className=" flex flex-col py-3 bg-bottom relative">
-                            <p className='capitalize text-gray-400 text-sm'>nutritionist</p>
-                            <p className='uppercase font-bold'>chikaima obidiugwu</p>
-                            <div className='stars space-x-1 mb-10'>
-                                <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
-                                <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
-                                <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
-                                <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
-                                <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
-                            </div>
+                        <AnimatePresence>
+                            {reviewCard && (
+                                <motion.div className=" flex flex-col py-3 bg-bottom relative"
+                                    initial={{ opacity: 0, x: 100 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                                    exit={{ opacity: 0, x: -100 }}
+                                >
+                                    <p className='capitalize text-gray-400 text-sm'>{reviewCard.title}</p>
+                                    <p className='uppercase font-bold'>{reviewCard.name}</p>
+                                    <div className='stars space-x-1 mb-5'>
+                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
+                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
+                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
+                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
+                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
+                                    </div>
 
-                            <p className='text-gray-500 text-sm'>"Lorem ipsum dolor sit amet consectetur adipisicing elit.Quod iste nesciunt"</p>
-                            <i className="fa fa-quote-right absolute -bottom-2 -right-5 fa-8x opacity-10 -z-10" aria-hidden="true"></i>
-                        </motion.div>
+                                    <p className='text-gray-500 text-sm'>{reviewCard.review}</p>
+                                    <i className="fa fa-quote-right absolute -bottom-2 -right-5 fa-8x opacity-10 -z-10" aria-hidden="true"></i>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                     
                     <div className='hidden md:w-96 md:h-96 md:grid grid-cols-2 grid-rows-2 items-center gap-2 grid-flow-row-dense'>
