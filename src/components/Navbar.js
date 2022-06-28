@@ -33,7 +33,7 @@ const Navbar = () => {
 
     return (
         <nav className='relative' >
-            <div className='fixed top-0 flex justify-between w-full bg-white text-black mx-auto my-0 py-3 px-10 z-20'>
+            <div className='fixed top-0 flex justify-between w-full bg-white text-black mx-auto my-0 py-3 px-10 z-20 drop-shadow-md'>
                 <div className="logo h-5 w-12">
                     <img src={ logo } alt="logo" />
                 </div>
@@ -41,10 +41,10 @@ const Navbar = () => {
                     {/* on md screen */}
                     <div className='flex flex-row space-x-2 items-center'>
                         <ul className="hidden md:flex flex-row space-x-5 uppercase">
-                            <motion.li whileHover={{ scale: 1.05 }} className='active hover:bg-yellow-500 hover:text-white w-full px-4 py-2 rounded-sm'>Home</motion.li>                
-                            <motion.li whileHover={{ scale: 1.05 }} className='hover:bg-yellow-500 hover:text-white rounded-sm w-full px-4 py-2'>Services</motion.li>                
-                            <motion.li whileHover={{ scale: 1.05 }} className='hover:bg-yellow-500 hover:text-white rounded-sm w-full px-4 py-2'>About</motion.li>                
-                            <motion.li whileHover={{ scale: 1.05 }} className='hover:bg-yellow-500 hover:text-white rounded-sm w-full px-4 py-2'>Contact</motion.li>                
+                            <motion.li whileHover={{ scale: 1.05 }} className='active hover:bg-neonCarrot hover:text-white w-full px-4 py-2 rounded-sm'>Home</motion.li>                
+                            <motion.li whileHover={{ scale: 1.05 }} className='hover:bg-neonCarrot hover:text-white rounded-sm w-full px-4 py-2'>Services</motion.li>                
+                            <motion.li whileHover={{ scale: 1.05 }} className='hover:bg-neonCarrot hover:text-white rounded-sm w-full px-4 py-2'>About</motion.li>                
+                            <motion.li whileHover={{ scale: 1.05 }} className='hover:bg-neonCarrot hover:text-white rounded-sm w-full px-4 py-2'>Contact</motion.li>                
                         </ul>
                         <form className=''>
                             <input className='hidden bg-gray-200 rounded-full py-1 pl-5 lg:inline' type="search" name="search" value={ searchText } onChange={e => setSearchText(e.target.value)} placeholder="Search"/>
@@ -53,9 +53,9 @@ const Navbar = () => {
                     </div>
                     {/* on sm screen */}
                     <div className='flex flex-col space-y-1 cursor-pointer md:hidden' onClick={e => setAnimation(prevState => !prevState)}>
-                        <span className='w-7 h-1 rounded-sm bg-yellow-500'></span>
-                        <span className='w-7 h-1 rounded-sm bg-yellow-500'></span>
-                        <span className='w-5 h-1 rounded-sm bg-yellow-500'></span>
+                        <span className='w-7 h-1 rounded-sm bg-neonCarrot'></span>
+                        <span className='w-7 h-1 rounded-sm bg-neonCarrot'></span>
+                        <span className='w-5 h-1 rounded-sm bg-neonCarrot'></span>
                     </div>
                 </div>
             </div>

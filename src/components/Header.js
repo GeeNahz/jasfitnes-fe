@@ -71,7 +71,6 @@ const btnVariants = {
 
 const Header = () => {
     const [image, setImage] = useState(images[0]);
-    // const [join, setJoin] = useState('');
     const i = useRef(1);
 
     useEffect(() => {

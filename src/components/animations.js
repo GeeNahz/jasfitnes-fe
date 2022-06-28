@@ -7,11 +7,13 @@ export const boxVariants = {
 
 export const blackBoxVariants = {
     hidden: {
-        x: -100,
+        // x: -100,
+        y: -100,
         opacity: 0
     },
     visible: {
-        x: 0,
+        // x: 0,
+        y: 0,
         opacity: 1,
         transition: {
             duration: 1,
@@ -23,15 +25,17 @@ export const blackBoxVariants = {
 
 export const yellowBoxVariants = {
     hidden: {
-        x: 100,
+        // x: 100,
+        y: -100,
         opacity: 0
     },
     visible: {
-        x: 0,
+        // x: 0,
+        y: 0,
         opacity: 1,
         transition: {
             duration: 1,
-            delay: 0.5,
+            delay: 0.8,
             ease: "easeInOut"
         }
     }
@@ -173,3 +177,9 @@ export const titleHereVariants = {
         }
     }
 }
+
+// export const contactBtnVariants = {
+//     hidden: { },
+//     visible: { },
+//     hover: { scale: 1.1 }
+// }
