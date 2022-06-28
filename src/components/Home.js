@@ -26,6 +26,7 @@ import logo3 from '../images/logo3.png'
 
 import Header from './Header';
 import OfferCard from './OfferCard';
+import StarRating from './StarRating';
 
 
 const boxClass = 'flex flex-col justify-center text-center px-16 w-96 h-96 overflow-hidden md:max-h-7xl md:max-w-7xl shadow-2xl'
@@ -396,11 +397,7 @@ const Home = () => {
                                     <p className='capitalize text-gray-400 text-sm'>{reviewCard.title}</p>
                                     <p className='uppercase font-bold'>{reviewCard.name}</p>
                                     <div className='stars space-x-1 mb-5'>
-                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
-                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
-                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
-                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
-                                        <i className="fa fa-star fa-sm text-yellow-400" aria-hidden="true"></i>
+                                        <StarRating rate={reviewCard.stars} />
                                     </div>
 
                                     <p className='text-mako text-sm'>{reviewCard.review}</p>
