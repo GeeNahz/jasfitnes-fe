@@ -178,8 +178,9 @@ export const titleHereVariants = {
     }
 }
 
-// export const contactBtnVariants = {
-//     hidden: { },
-//     visible: { },
-//     hover: { scale: 1.1 }
-// }
+export const navbarMenuBtnVariants = {
+    hidden: { rotate: 0, y: 0, opacity: 1 },
+    visibleTop: { rotate: 45, y: 8, opacity: 1, transition: { duration: 0.1 } },
+    visibleMiddle: { rotate: -45, y: 0, opacity: 1, transition: { duration: 0.1 } },
+    visibleBottom: { rotate: 0, y: 0, opacity: 0, transition: { duration: 0.05 } }
+}

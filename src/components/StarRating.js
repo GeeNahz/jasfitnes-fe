@@ -8,7 +8,7 @@ const StarRating = (props) => {
             {[...Array(5)].map((star, index) => {
                 index += 1;
                 return (
-                    <button
+                    <span
                         type='button'
                         key={index}
                         className={index <= (props.rate) ? "on" : "off"}
@@ -17,7 +17,7 @@ const StarRating = (props) => {
                         // onMouseLeave={() => setHover(rating)}
                     >
                         <span className='star'>&#9733;</span>
-                    </button>
+                    </span>
                 )
             })}
         </div>

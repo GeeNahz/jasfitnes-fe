@@ -85,8 +85,8 @@ const Header = () => {
 
     return (
         <>
-            <motion.div className="flex w-full h-max md:h-96 relative mt-12 bg-no-repeat bg-cover bg-center bg-origin-border bg-gradient-to-r from-cyan-500 to-blue-500" style={{backgroundImage: `url(${image})` }}>
-                {/* <img src={image} alt="images" className='min-w-full h-96 md:h-full'/> */}
+            <motion.div className="flex w-full h-max md:h-96 relative mt-12 bg-no-repeat bg-cover bg-center bg-origin-border bg-gradient-to-r from-cyan-500 to-blue-500" style={{backgroundImage: `url(${image})`}}>
+                {/* <img src={image} alt="images" className='min-w-full h-96 md:h-full object-cover'/> */}
                 <motion.div className='flex flex-col bg-black bg-opacity-60 md:absolute top-0 left-0 py-28 px-24 w-full h-full text-left items-start justify-center' 
                     variants={heroVariants}
                     initial="hidden"
