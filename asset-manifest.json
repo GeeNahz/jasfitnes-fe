@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/jasfitnes-fe/static/css/main.e92b822a.css",
-    "main.js": "/jasfitnes-fe/static/js/main.44cfa65f.js",
+    "main.css": "/jasfitnes-fe/static/css/main.c7f7ecff.css",
+    "main.js": "/jasfitnes-fe/static/js/main.bf04d00e.js",
     "static/media/pose3.png": "/jasfitnes-fe/static/media/pose3.2d3d8f4e3ac3a6fe546e.png",
     "static/media/Poppins-Regular.ttf": "/jasfitnes-fe/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/workout4.jpg": "/jasfitnes-fe/static/media/workout4.9b2f656811a6a6a48d82.jpg",
     "static/media/brawn-svgrepo-com.svg": "/jasfitnes-fe/static/media/brawn-svgrepo-com.1f0acf35fd945cdf6234ebd996e74195.svg",
     "index.html": "/jasfitnes-fe/index.html",
     "static/media/timer_FILL0_wght400_GRAD0_opsz48.svg": "/jasfitnes-fe/static/media/timer_FILL0_wght400_GRAD0_opsz48.845232418e356d27d828781c544ccbec.svg",
-    "main.e92b822a.css.map": "/jasfitnes-fe/static/css/main.e92b822a.css.map",
-    "main.44cfa65f.js.map": "/jasfitnes-fe/static/js/main.44cfa65f.js.map"
+    "main.c7f7ecff.css.map": "/jasfitnes-fe/static/css/main.c7f7ecff.css.map",
+    "main.bf04d00e.js.map": "/jasfitnes-fe/static/js/main.bf04d00e.js.map"
   },
   "entrypoints": [
-    "static/css/main.e92b822a.css",
-    "static/js/main.44cfa65f.js"
+    "static/css/main.c7f7ecff.css",
+    "static/js/main.bf04d00e.js"
   ]
 }
