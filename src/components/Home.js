@@ -108,6 +108,15 @@ const Home = () => {
     const [reviewCard, setReviewCard] = useState(reviews[0]);
     const index = useRef(1);
 
+    let pageWidth = window.innerWidth;
+
+    useEffect(() => {
+        if (pageWidth > 770) {
+            setSearchBtnAction(false);
+            document.body.style.overflow = 'unset';
+        }
+    }, [pageWidth]);
+
     useEffect(() => {
         const interval = setInterval(() => {
             if (index.current === reviews.length) {
@@ -134,6 +143,22 @@ const Home = () => {
         }
     }, [titleHereAnimation, whoWeAreAnimation, whatWeOfferAnimation, inView, inView2, inView3]);
 
+    const handleSearchForm = (e) => {
+        e.preventDefault();
+    }
+
+    const handleToggleSearchModal = (e) => {
+        e.stopPropagation();
+
+        if (searchBtnAction) {
+            setSearchBtnAction(false)
+            document.body.style.overflow = 'unset';
+        } else {
+            setSearchBtnAction(true);
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
     return (
         <>
             {/* Navbar */}
@@ -143,7 +168,8 @@ const Home = () => {
                         <div className="logo h-5 w-12">
                             <img src={logo} alt="logo" />
                         </div>
-                        <div className='flex flex-row-reverse'>
+                        {/* menu and search bar */}
+                        <div className='flex'>
                             {/* on md screen */}
                             <div className='flex flex-row space-x-2 items-center'>
                                 <ul className="hidden md:flex flex-row space-x-5 uppercase">
@@ -166,7 +192,7 @@ const Home = () => {
                                     >
                                         <input className='bg-gray-200 rounded-full py-1 pl-5 lg:inline' type="search" name="search" value={searchText} onChange={e => setSearchText(e.target.value)} placeholder="Search..." />
                                     </div>
-                                    <i className={`fa fa-search lg:ml-2 cursor-pointer md:hidden`} onClick={() => setSearchBtnAction(true)} ></i>
+                                    <i className={`fa fa-search mr-5 lg:ml-2 cursor-pointer md:hidden`} onClick={handleToggleSearchModal} ></i>
                                 </form>
                             </div>
                             {/* on sm screen */}
@@ -184,15 +210,16 @@ const Home = () => {
                                     animate={animation ? "visibleBottom" : "hidden"}
                                 ></motion.span>
                             </div>
+                            {/* search bar */}
                             {searchBtnAction && (
-                                <div className='absolute top-0 left-0 bg-black bg-opacity-70  min-h-screen w-full z-10 flex flex-col justify-center'>
-                                    <form className="bg-white mx-auto my-5 z-30 p-5 w-72 rounded-md">
+                                <div className='absolute top-0 left-0 bg-black bg-opacity-70  min-h-screen w-full z-10 flex flex-col justify-start pt-20' onClick={handleToggleSearchModal}>
+                                    <form className="bg-white mx-auto my-5 z-30 p-5 w-72 rounded-md" onSubmit={handleSearchForm} onClick={(e) => e.stopPropagation()}>
                                         <p className='mb-3'>Find what you're looking for</p>
                                         <input type="text" placeholder="Search.." className='p-3 bg-gray-200 w-full rounded-sm' name="search" />
                                         <hr className='my-2 border-gray-400' />
                                         <button type="submit" className='bg-neonCarrot block w-full p-2 rounded-sm text-white hover:bg-yellow-600'>Search</button>
                                     </form>
-                                    <button className='text-white' onClick={() => setSearchBtnAction(prev => !prev)}>&#x2716;</button>
+                                    <button className='text-white z-20 hover:scale-110 p-4 w-20 mx-auto' onClick={handleToggleSearchModal}>&#x2716;</button>
                                 </div>
                             )}
                         </div>
@@ -221,6 +248,7 @@ const Home = () => {
             <div id='top' className='md:h-4'></div>
             {/* header */}
             <Header />
+            {/* main section */}
             <motion.main className='flex-grow overflow-y-auto overflow-x-hidden items-center'>
                 {/* pre about us */}
                 <motion.section className="flex flex-col my-0 justify-center items-center md:flex-row md:px-16 md:home-page"
@@ -583,8 +611,7 @@ const Home = () => {
 
                     </div>
                     {/* video */}
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/SbCedTlJWTs" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" className='w-full h-96 md:mx-auto md:absolute md:top-20 lg:left-80 lg:w-8/12 lg:rounded-lg' allowFullScreen></iframe>
-
+                    <iframe width="1621" height="772" src="https://www.youtube.com/embed/ZFiAq6QQRqA" title="Light vs Heavy Weight (Science-Based)" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" className='w-full h-96 md:absolute md:top-20 lg:left-[17%] lg:w-8/12 lg:rounded-lg' allowFullScreen></iframe>
                     <div className='h-20 md:h-80 bg-white'>
 
                     </div>
@@ -592,7 +619,7 @@ const Home = () => {
                 {/* contact us */}
                 <section id='contact' className='relative'>
                     <div className='h-20 md:h-60 bg-gray-200'></div>
-                    <motion.div className='flex flex-col justify-between px-12 py-16 mx-auto bg-neonCarrot text-white text-center gap-3 drop-shadow-2xl md:w-3/5 md:left-48 lg:left-96 md:text-left md:rounded-2xl max-w-7xl md:flex-row md:absolute md:top-28 lg:top-28'
+                    <motion.div className='flex flex-col justify-between px-12 py-16 bg-neonCarrot text-white text-center gap-3 drop-shadow-2xl md:w-[70%] md:left-[16%] md:text-left md:rounded-2xl max-w-7xl md:flex-row md:absolute md:top-28 lg:top-28 lg:left-[21%] lg:w-[55%]'
                         whileHover={{ scale: 1.03 }}
                     >
                         <div className="pb-2 md:pb-none">
@@ -600,15 +627,13 @@ const Home = () => {
                             <p className='uppercase text-sm md:font-bold md:text-lg' >subscribe to our newsletter</p>
                             <p className='text-xs md:text-sm' >Lorem ipsum dolor sit amet consectetur adipisicing elit.Quod iste nesciunt</p>
                         </div>
-                        <div>
-                            <form className='flex flex-col space-y-3 lg:w-96' >
-                                <input type="text" placeholder='Name' className='p-2 text-gray-600 rounded-sm' />
-                                <input type="text" placeholder='Email' className='p-2 text-gray-600 rounded-sm' />
-                                <motion.input type="button" value="subscribe" className='uppercase text-sm bg-zinc-900 p-2 rounded-sm hover:bg-zinc-800 hover:cursor-pointer'
-                                    whileTap={{ scale: 0.97 }}
-                                />
-                            </form>
-                        </div>
+                        <form className='flex flex-col space-y-3 lg:w-96' >
+                            <input type="text" placeholder='Name' className='p-2 text-gray-600 rounded-sm' />
+                            <input type="text" placeholder='Email' className='p-2 text-gray-600 rounded-sm' />
+                            <motion.input type="button" value="subscribe" className='uppercase text-sm bg-zinc-900 p-2 rounded-sm hover:bg-zinc-800 hover:cursor-pointer'
+                                whileTap={{ scale: 0.97 }}
+                            />
+                        </form>
                     </motion.div>
                     <div className='h-20 md:h-72 bg-white'></div>
                 </section>
